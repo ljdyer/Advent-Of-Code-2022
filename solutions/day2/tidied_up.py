@@ -1,38 +1,27 @@
 with open('data.txt', 'r') as f:
-    data = f.read().splitlines()
+    letter_pairs = [line.split() for line in f.read().splitlines()]
 
-letter_to_shape = {
-    'A': 'ro', 'B': 'pa', 'C': 'sc',
-    'X': 'ro', 'Y': 'pa', 'Z': 'sc'
+# === PART 1 ===
+LETTER_SHAPE = {'A': 'ro', 'B': 'pa', 'C': 'sc', 'X': 'ro', 'Y': 'pa', 'Z': 'sc'}
+SHAPE_ORDER = ['pa', 'ro', 'sc']
+ME_OPPONENT_OUTCOME = {
+    shape: dict(zip(SHAPE_ORDER[i:] + SHAPE_ORDER[:i], ['draw', 'win', 'lose']))
+    for i, shape in enumerate(SHAPE_ORDER)
 }
-shape_scores = {'ro': 1, 'pa': 2, 'sc': 3}
-shape_precedence = ['ro', 'sc', 'pa', 'ro']
+SHAPE_SCORES = {'ro': 1, 'pa': 2, 'sc': 3}
+OUTCOME_SCORES = {'win': 6, 'draw': 3, 'lose': 0}
 
-# Part 1
-score = 0
-for x in data:
-    them, me = [letter_to_shape[y] for y in x.split(' ')]
-    score += shape_scores[me]
-    if them == me:
-        score += 3
-    elif shape_precedence[shape_precedence.index(me) + 1] == them:
-        score += 6
+shape_pairs = [(LETTER_SHAPE[opponent], LETTER_SHAPE[me]) for opponent, me in letter_pairs]
+score = sum([SHAPE_SCORES[me] + OUTCOME_SCORES[ME_OPPONENT_OUTCOME[me][opponent]] for opponent, me in shape_pairs])
 print(score)
 
-# Part 2
-letter_to_outcome = {'X': 'lose', 'Y': 'draw', 'Z': 'win'}
-precedence_reverse = list(reversed(shape_precedence))
-score = 0
-for x in data:
-    them, outcome = x.split(' ')
-    them = letter_to_shape[them]
-    outcome = letter_to_outcome[outcome]
-    if outcome == 'draw':
-        score += 3
-        score += shape_scores[them]
-    elif outcome == 'win':
-        score += 6
-        score += shape_scores[precedence_reverse[precedence_reverse.index(them) + 1]]
-    elif outcome == 'lose':
-        score += shape_scores[shape_precedence[shape_precedence.index(them) + 1]]
+# === PART 2 ===
+LETTER_OUTCOME = {'X': 'lose', 'Y': 'draw', 'Z': 'win'}
+OPPONENT_OUTCOME_ME = {
+    shape: dict(zip(['draw', 'lose', 'win'], SHAPE_ORDER[i:] + SHAPE_ORDER[:i]))
+    for i, shape in enumerate(SHAPE_ORDER)
+}
+shape_outcome_pairs = [(LETTER_SHAPE[opponent], LETTER_OUTCOME[outcome]) for opponent, outcome in letter_pairs]
+score = sum([SHAPE_SCORES[OPPONENT_OUTCOME_ME[opponent][outcome]] + OUTCOME_SCORES[outcome] for opponent, outcome in shape_outcome_pairs])
 print(score)
+
