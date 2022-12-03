@@ -26,4 +26,10 @@ Keeping it simple this year—no YouTube videos, and I won't be recording the ti
     <td>00:11:44 (1296)</td>
   </tr>
 
+  <tr>
+    <th scope="row"><a href="/solutions/day3/">Day 3</a></th>
+    <td>02:34:35 (23102)</td>
+    <td>02:38:41 (20595)</td>
+  </tr>
+
 </table>
