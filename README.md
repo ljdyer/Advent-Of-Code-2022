@@ -1,4 +1,4 @@
-# Advent of Code 2021 (Stars so far: 8/50)
+# Advent of Code 2021 (Stars so far: 10/50)
 
 In the words of its creator Eric Wastl:
 
@@ -36,6 +36,12 @@ Keeping it simple this year—no YouTube videos, and I won't be recording the ti
     <th scope="row"><a href="/solutions/day4/">Day 4</a></th>
     <td>01:46:24 (19735)</td>
     <td>01:47:56 (18747)</td>
+  </tr>
+
+  <tr>
+    <th scope="row"><a href="/solutions/day5/">Day 5</a></th>
+    <td>03:14:54 (24493)</td>
+    <td>08:41:08 (46779)</td>
   </tr>
 
 </table>
