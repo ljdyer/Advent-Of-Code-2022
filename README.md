@@ -1,4 +1,4 @@
-# Advent of Code 2021 (Stars so far: 10/50)
+# Advent of Code 2021 (Stars so far: 12/50)
 
 In the words of its creator Eric Wastl:
 
