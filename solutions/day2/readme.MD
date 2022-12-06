@@ -1,1 +1,3 @@
 ## [--- Day 2: Rock Paper Scissors ---](https://adventofcode.com/2022/day/2)
+
+Easy enough, but time consuming writing out all the mappings and combinations. I felt like an elegant solution should leverage the fact that the relationship between the shapes is cyclical and I kind of got there in the `tidied_up` version, although it doesn't make the code much shorter...

@@ -4,7 +4,7 @@ In the words of its creator Eric Wastl:
 
 *"<a href="https://adventofcode.com/">Advent of Code</a> is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like. People use them as a speed contest, interview prep, company training, university coursework, practice problems, or to challenge each other."*
 
-Keeping it simple this year—no YouTube videos, and I won't be recording the time it took me to complete each answer, so I'll just post my official time and rank for each puzzle below.
+Keeping it simple this year—no YouTube videos, and I won't be recording the time it took me to complete each answer, so I'll just post my official time and rank for each puzzle below. `on_the_day` solutions are exactly the code I had when I submitted my answer for Part 2, and `tidied_up` solutions are the code after I made it prettier.
 
 <table style="margin-left:auto; margin-right:auto">
 
@@ -42,6 +42,12 @@ Keeping it simple this year—no YouTube videos, and I won't be recording the ti
     <th scope="row"><a href="/solutions/day5/">Day 5</a></th>
     <td>03:14:54 (24493)</td>
     <td>08:41:08 (46779)</td>
+  </tr>
+
+  <tr>
+    <th scope="row"><a href="/solutions/day6/">Day 6</a></th>
+    <td>00:13:15 (8304)</td>
+    <td>00:15:08 (7560)</td>
   </tr>
 
 </table>
