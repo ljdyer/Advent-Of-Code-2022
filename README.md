@@ -6,7 +6,7 @@ In the words of its creator Eric Wastl:
 
 Keeping it simple this year—no YouTube videos, and I won't be recording the time it took me to complete each answer, so I'll just post my official time and rank for each puzzle below. `on_the_day` solutions are exactly the code I had when I submitted my answer for Part 2, and `tidied_up` solutions are the code after I made it prettier.
 
-*Goal for 2022*: Complete every part on the day it was released
+**Goal for 2022**: Complete every part on the day it was released
 
 ```
       --------Part 1--------   --------Part 2--------
