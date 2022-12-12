@@ -1,3 +1,5 @@
-## [--- Day 11: Monkey in the Middle ---](https://adventofcode.com/2022/day/11)
+## [--- Day 12: Hill Climbing Algorithm ---](https://adventofcode.com/2022/day/12)
 
-Part 1 not too bad. Part 2 requires a different approach because repeated arithmetic operations on very large integers take too long. Experimented unsuccessfully with prime factors before coming up with a solution based on [compatibility of modulus operator](https://en.wikipedia.org/wiki/Modular_arithmetic#Properties).
+Solved Part 1 for the test data fairly quickly but of course had to make it more efficient to solve for the actual data. Played around unsuccessfully for a while before consulting the [description of Djikstra's Algorithm on Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Algorithm) and implementing my own version incorporating the rules of this puzzle, which solved it in a few seconds.
+
+Went with brute force for Part 2 using the same code from Part 1 to get the shortest path from all 'a' nodes—around 1300 candidates, taking around 20 minutes. Realised later that 'a' nodes surrounded by other 'a' nodes don't need to be considered so removed those for the tidied up version, leaving around 800 candidates. Others have mentioned they solved Part 2 quickly by reversing the route to start from 'E', which makes sense but I haven't had the time to implement it yet.
