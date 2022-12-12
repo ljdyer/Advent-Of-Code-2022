@@ -1,0 +1,3 @@
+## [--- Day 11: Monkey in the Middle ---](https://adventofcode.com/2022/day/11)
+
+Part 1 not too bad. Part 2 requires a different approach because repeated arithmetic operations on very large integers take too long. Experimented unsuccessfully with prime factors before coming up with a solution based on [compatibility of modulus operator](https://en.wikipedia.org/wiki/Modular_arithmetic#Properties).
