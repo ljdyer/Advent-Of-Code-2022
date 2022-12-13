@@ -9,15 +9,16 @@ def relation(l, r):
     # Both values are integers
     if isinstance(l, int) and isinstance(r, int):
         return [x[0] for x in [('lt', l<r), ('eq',l==r), ('gt', l>r)] if x[1]][0]
-    # Exactly one value is an integer
+    # One or more is a list - convert ints to lists and copy lists
     l = [l] if isinstance(l, int) else l.copy()
     r = [r] if isinstance(r, int) else r.copy()
+    # Compare lists
     while l and r:
         rel = relation(l.pop(0), r.pop(0))
         if rel != 'eq':
             return rel
     return [x[0] for x in [('eq', not l and not r), ('lt', not l), ('gt', True)] if x[1]][0]
-    
+
 
 # Part 1
 packet_pairs = [pp.split('\n') for pp in data.split('\n\n')]
