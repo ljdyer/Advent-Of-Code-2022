@@ -1,7 +1,7 @@
 import traceback
 
 # with open('test_data.txt', 'r') as f:
-with open('data.txt', 'r') as f:
+with open('../data.txt', 'r') as f:
     data = f.read().splitlines()
 
 def join_the_dots(lis_):
