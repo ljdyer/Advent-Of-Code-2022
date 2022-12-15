@@ -1,4 +1,4 @@
-# Advent of Code 2021 (Stars so far: 22/50)
+# Advent of Code 2021 (Stars so far: 30/50)
 
 In the words of its creator Eric Wastl:
 
@@ -11,6 +11,10 @@ Keeping it simple this year—no YouTube videos, and I won't be recording the ti
 ```
       --------Part 1--------   --------Part 2--------
 Day       Time   Rank  Score       Time   Rank  Score
+ 15   04:04:22  10492      0   17:31:01  19269      0
+ 14   02:49:49   9149      0   03:06:38   8603      0
+ 13   03:10:04   9481      0   03:21:40   8855      0
+ 12   08:17:45  18297      0   08:57:14  18229      0
  11   03:27:23  13224      0   06:05:45  14140      0
  10   17:09:51  48260      0   17:20:48  43904      0
   9   02:24:42  14541      0   02:31:35  10007      0
