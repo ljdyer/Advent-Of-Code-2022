@@ -1,8 +1,8 @@
 import re
 from operator import itemgetter
 
-# with open('test_data.txt', 'r') as f:
-with open('data.txt', 'r') as f:
+# with open('../test_data.txt', 'r') as f:
+with open('../data.txt', 'r') as f:
     lines = f.read().splitlines()
 
 sensors = {}
