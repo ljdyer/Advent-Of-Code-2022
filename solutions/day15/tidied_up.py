@@ -91,10 +91,3 @@ row, blocked = answer[0]
 col = [c for c in range(search_cols[0], search_cols[1]) if all(c not in range(s, f+1) for s, f in blocked)]
 assert len(col) == 1
 print(tuning_frequency((row, col[0])))
-            
-
-
-
-
-
-
