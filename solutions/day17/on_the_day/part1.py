@@ -8,8 +8,6 @@ with open('../data.txt', 'r') as f:
 
 jet_pattern = itertools.cycle(list(data))
 
-
-
 """The tall, vertical chamber is exactly seven units wide.
 Each rock appears so that its left edge is two units away
 from the left wall and its bottom edge is three units above
@@ -90,15 +88,9 @@ class Shape:
 
 def remove_irrelevant_points(points):
 
-    cols_covered = []
-    for i in range(max_top(points), 1):
-        cols_covered.extend([p[1] for p in points if p[0] == i])
-        if all([c in cols_covered for c in range(7)]):
-            return [p for p in points if p[0] <= i]
-    return points
-
-
-
+    top_row = max_top(points)
+    
+    return [p for p in points if p[0] < top_row + 100]
 
 def new_top(shape_type, current_top):
     if shape_type == 1:
@@ -111,13 +103,6 @@ def new_top(shape_type, current_top):
         return current_top - 2
 
 grid_width = 7
-
-
-
-
-
-
-
 
 def max_top(points_covered, new_shape=None):
 
@@ -145,16 +130,11 @@ def draw_grid(points_covered, new_shape):
 points_covered = []
 shape_types = itertools.cycle(range(1,6))
 
-heights = []
-
-# 20 => 36
-
-for n in range(50455):
+for n in range(2022):
 
     next_shape_type = next(shape_types)
     max_top_ = max_top(points_covered)
     new_shape = Shape(type=next_shape_type, top=new_top(next_shape_type, max_top_)-3, left=2)
-    # draw_grid(points_covered, new_shape)
     while True:
         # Jet
         new_new_shape = deepcopy(new_shape)
@@ -169,15 +149,9 @@ for n in range(50455):
         else:
             points_covered.extend(new_shape.points)
             points_covered = remove_irrelevant_points(points_covered)
-            if new_shape.type == 1 and new_shape.left == 2:
-                print(n)
-            if len(points_covered) <= 7:
-                print(n)
-                break
+            # draw_grid(points_covered, new_shape)
             break
-    # print(n)
-    height = -(max_top(points_covered))+1
-    heights.append(height)
+    print(n)
 
-print(heights[-1])
-print(len(data)*5)
+height = -max_top(points_covered) + 1
+print(height)

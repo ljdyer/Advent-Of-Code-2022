@@ -20,6 +20,7 @@ class Route:
     valves_opened: list
     pressure: int
     minutes: List[int]
+    mover: int
     def __eq__(self, other):
         if sorted(self.current_pos) == sorted(other.current_pos):
             if sorted(self.valves_opened) == sorted(other.valves_opened):
@@ -47,7 +48,7 @@ for n in valves.keys():
     valves[n].goto=[(x, min_dists[n][x]) for x in valves.keys()]
 print(valves.keys())
     
-routes = [Route(['AA', 'AA'], [], 0, [26, 26])]
+routes = [Route(['AA', 'AA'], [], 0, [26, 26], 0)]
 
 max_ = 0 
 for round in range(10):
@@ -55,26 +56,32 @@ for round in range(10):
         break
     new_routes = []
     for route in routes:
-        for mover in [0, 1]:
-            valves_opened = route.valves_opened
-            pos_mover = route.current_pos[mover]
-            minutes_mover = route.minutes[mover]
-            goto_mover = valves[pos_mover].goto
-            goto_mover = [g for g in goto_mover if g[0] not in valves_opened and valves[g[0]].flow_rate > 0]
-            for g in goto_mover:
-                minutes_ = minutes_mover - g[1] - 1
-                if minutes_ > 0:
-                    new_route = deepcopy(route)
-                    new_route.current_pos[mover] = g[0]
-                    new_route.minutes[mover] = minutes_
-                    new_route.pressure += minutes_ * valves[g[0]].flow_rate
-                    new_route.valves_opened.append(g[0])
-                    if new_route not in routes:
-                        new_routes.append(new_route)
+        mover = route.mover
+        valves_opened = route.valves_opened
+        pos_mover = route.current_pos[mover]
+        minutes_mover = route.minutes[mover]
+        goto_mover = valves[pos_mover].goto
+        goto_mover = [g for g in goto_mover if g[0] not in valves_opened and valves[g[0]].flow_rate > 0]
+        goto_minutes = [(g, minutes_mover-g[1]-1) for g in goto_mover]
+        goto_minutes = [g for g in goto_minutes if g[1] > 0]
+        if goto_minutes:
+            for g in goto_minutes:
+                g, minutes_ = g
+                new_route = deepcopy(route)
+                new_route.current_pos[mover] = g[0]
+                new_route.minutes[mover] = minutes_
+                new_route.pressure += minutes_ * valves[g[0]].flow_rate
+                new_route.valves_opened.append(g[0])
+                new_routes.append(new_route)
+        elif mover == 0:
+            new_route = deepcopy(route)
+            new_route.mover = 1
+            new_routes.append(new_route)
+        # else:
         max_ = max(max_, route.pressure)
     routes = set(new_routes)
-    # for r in routes:
-    #     print(r)
+    for r in routes:
+        print(r)
     print(f'Completed round {round+1} ({len(routes)} routes to reconcile)')
     print(max_)
 print(max_)
