@@ -4,13 +4,14 @@ In the words of its creator Eric Wastl:
 
 *"<a href="https://adventofcode.com/">Advent of Code</a> is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like. People use them as a speed contest, interview prep, company training, university coursework, practice problems, or to challenge each other."*
 
-Keeping it simple this year—no YouTube videos, and I won't be recording the time it took me to complete each answer, so I'll just post my official time and rank for each puzzle below. `on_the_day` solutions are exactly the code I had when I submitted my answer for Part 2, and `tidied_up` solutions are the code after I made it prettier.
+Keeping it simple this year—no YouTube videos, and I won't be recording the time it took me to complete each answer, so I'll just post my official time and rank for each puzzle below. `on_the_day` solutions are exactly the code I had when I submitted my answer (within 24 hours of the question being released at 5am GMT each day), and `tidied_up` solutions are the code after making edits to optimise and/or prettify it.
 
-**Goal for 2022**: Complete every part on the day it was released
+**Result**: 38/50 stars obtained on day of release of puzzles as of 25th December 2022 (vs. 33 in 2021).
 
 ```
       --------Part 1--------   --------Part 2--------
 Day       Time   Rank  Score       Time   Rank  Score
+ 25   18:09:12  11297      0          -      -      -
  23   10:07:38   8130      0   10:38:12   8026      0
  21   19:03:54  16961      0   20:50:26  14276      0
  18   05:39:55   9795      0          -      -      -
