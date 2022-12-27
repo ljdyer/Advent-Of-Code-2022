@@ -7,56 +7,22 @@ def get_data(real=False):
         data = f.read().splitlines()
     return data
 
-# numbers_orig = [int(x) for x in get_data(True)]
-numbers_orig = [int(x) for x in get_data()]
-numbers_sorted = numbers_orig.copy()
-num_numbers = len(numbers_orig)
+letters = 'abcdefghijklmnopqrs'
+# numbers_orig = ([int(x) for x in get_data()])
+numbers_orig = ([int(x) for x in get_data(True)])
+numbers_marked = []
+for i in range(len(numbers_orig)):
+    numbers_marked.append(f"{numbers_orig[i]}{letters[numbers_orig[:i].count(numbers_orig[i])]}")
+print(numbers_marked)
+numbers_sorted = numbers_marked.copy()
+for num in numbers_marked:
+    cur_idx = numbers_sorted.index(num)
+    del numbers_sorted[cur_idx]
+    new_idx = (cur_idx + int(num[:-1])) % len(numbers_sorted)
+    numbers_sorted.insert(new_idx, num)
+    # print(numbers_sorted)
 
-
-
-for i in range(num_numbers):
-    number = numbers_orig[i]
-    if number != 0:
-        start_pos = numbers_sorted.index(number)
-        end_pos = (start_pos + number) % (num_numbers)
-        numbers_sorted.insert(end_pos, number)
-        if start_pos < end_pos:
-            del numbers_sorted[numbers_sorted.index(number) + 1]
-        else:
-            del numbers_sorted[numbers_sorted.index(number)]
-        # print(numbers_sorted)
-        # print(start_pos)
-        # print(number)
-        # print(end_pos)
-    print(numbers_sorted)
-    print()
-
-zero_pos = numbers_sorted.index(0)
-one = numbers_sorted[(zero_pos + 1000) % num_numbers]
-print(one)
-two = numbers_sorted[(zero_pos + 2000) % num_numbers]
-print(two)
-three = numbers_sorted[(zero_pos + 3000) % num_numbers]
-print(three)
-print(one + two + three)
-
-
-# for i in range(len(numbers)):
-#     pre_numbers = []
-#     while True:
-#         x = numbers.pop(0)
-#         if isinstance(x, int):
-#             break
-#         else:
-#             pre_numbers.append(x)
-#     numbers = numbers + pre_numbers
-#     # pos_to_insert = x % num_numbers
-#     # numbers.insert(pos_to_insert, f"m{x}")
-#     numbers.insert(x, f"m{x}")
-    
-# pos_0 = numbers.index('m0')
-# numbers = numbers[pos_0:] + numbers[:pos_0]
-
-# for i in [0, 6, 12, 18]:
-#     x = [0,1,2,3,4,5]
-#     x.insert()
+thousandth = numbers_sorted[(numbers_sorted.index('0a') + 1000) % len(numbers_sorted)]
+two_thousandth = numbers_sorted[(numbers_sorted.index('0a') + 2000) % len(numbers_sorted)]
+three_thousandth = numbers_sorted[(numbers_sorted.index('0a') + 3000) % len(numbers_sorted)]
+print(int(thousandth[:-1]) + int(two_thousandth[:-1]) + int(three_thousandth[:-1]))
