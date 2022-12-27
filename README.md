@@ -6,7 +6,10 @@ In the words of its creator Eric Wastl:
 
 Keeping it simple this year—no YouTube videos, and I won't be recording the time it took me to complete each answer, so I'll just post my official time and rank for each puzzle below. `on_the_day` solutions are exactly the code I had when I submitted my answer (within 24 hours of the question being released at 5am GMT each day), and `tidied_up` solutions are the code after making edits to optimise and/or prettify it.
 
-**Result**: 38/50 stars obtained on day of release of puzzles as of 25th December 2022 (vs. 33 in 2021).
+## Result
+- "Undefeated" streak of 15 days from beginning of event obtaining every star on the day of release (vs. 13 in 2021).
+- 38/50 stars obtained on day of release as of 25th December 2022 (vs. 33 in 2021).
+
 
 ```
       --------Part 1--------   --------Part 2--------
